@@ -1,0 +1,55 @@
+﻿@model RMovies.Models.Movie
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Movie</h2>
+
+<form action="Edit" method="post">
+    @Html.HiddenFor(c=>c.id)
+    <table class="table table-sm">
+        <tr>
+            <td>@Html.LabelFor(c => c.name)</td>
+            <td>@Html.TextBoxFor(c => c.name, new { @class = "form-control" })</td>
+            <td>@Html.ValidationMessageFor(c => c.name)</td>
+
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(c => c.genre)</td>
+            <td>@Html.TextBoxFor(c => c.genre, new { @class = "form-control" })</td>
+            <td>@Html.ValidationMessageFor(c => c.genre)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(c => c.releseDate)</td>
+            <td>@Html.TextBoxFor(c => c.releseDate, new { @class = "form-control", @type = "date",@Value = Model.releseDate.ToString("yyyy-MM-dd") })</td>
+            <td>@Html.ValidationMessageFor(c => c.releseDate)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(c => c.dateAdded)</td>
+            <td>@Html.TextBoxFor(c => c.dateAdded, new { @class = "form-control", @type = "date" ,@Value = Model.dateAdded.ToString("yyyy-MM-dd") })</td>
+            <td>@Html.ValidationMessageFor(c => c.dateAdded)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(c => c.numberinStock)</td>
+            <td>@Html.TextBoxFor(c => c.numberinStock, new { @class = "form-control", @type = "number" })</td>
+            <td>@Html.ValidationMessageFor(c => c.numberinStock)</td>
+        </tr>
+        <tr>
+            @Html.AntiForgeryToken()
+            <td></td>
+            <td><input type="submit" value="Create" class="btn btn-success" /></td>
+            <td></td>
+        </tr>
+
+    </table>
+
+
+
+</form>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

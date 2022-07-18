@@ -1,0 +1,15 @@
+﻿@model RMovies.Models.Movie
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.name</h2>
+
+<ul>
+
+    <li>Genre : @Model.genre</li>
+    <li>Release Date : @Model.releseDate.ToLongDateString()</li>
+    <li>Date Added : @Model.dateAdded.ToLongDateString()</li>
+    <li>Number in Stock : @Model.numberinStock</li>
+    
+</ul>

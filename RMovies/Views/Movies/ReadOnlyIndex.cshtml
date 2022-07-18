@@ -1,0 +1,48 @@
+﻿@model List<RMovies.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Movies</h2>
+
+
+@if (Model.Count() == 0)
+{
+    <h4>We dont have any Movie yet</h4>
+}
+
+else
+{
+
+    <table id="movies" class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col">Movies</th>
+                <th scope="col">Genre</th>
+               
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>@item.name</td>
+                    <td>@item.genre</td>
+                   
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@section scripts
+{
+    <script>
+        $(document).ready(function(){
+            $("#movies").DataTable();
+        })
+    </script>
+
+
+}

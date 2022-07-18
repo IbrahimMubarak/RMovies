@@ -6,11 +6,20 @@ using System.Web.Mvc;
 
 namespace RMovies.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
-            return View();
+            if (User.IsInRole("canManage")) {
+                return View();
+            }
+            else
+            {
+                ViewBag.User ="User";
+                return View();
+            }
         }
 
         public ActionResult About()

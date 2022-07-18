@@ -1,0 +1,4 @@
+Admin
+
+email: admin@Rmovies.com
+password: Admin@1234 

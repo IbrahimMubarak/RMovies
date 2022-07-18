@@ -1,0 +1,57 @@
+﻿@model RMovies.Models.Customer
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit @Model.name</h2>
+
+<form action="Edit" method="post">
+    @Html.HiddenFor(c=>c.id)
+    <table class="table table-sm">
+        <tr>
+            <td>@Html.LabelFor(c => c.name)</td>
+            <td>@Html.TextBoxFor(c => c.name, new { @class = "form-control" })</td>
+            <td>@Html.ValidationMessageFor(c => c.name)</td>
+
+        </tr>
+
+        <tr>
+    <td>@Html.LabelFor(c => c.birthday)</td>
+    @if (Model.birthday== null)
+    {
+        <td>@Html.TextBoxFor(c => c.birthday, new { @class = "form-control", @type = "date" })</td>
+    }
+    else
+    {
+        <td>@Html.TextBoxFor(c => c.birthday, "{0:d MMM yyyy}", new { @class = "form-control" })</td>
+    }
+    
+            <td>@Html.ValidationMessageFor(c => c.birthday)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(c => c.MembershipTypeId)</td>
+            <td>@Html.DropDownListFor(c => c.MembershipTypeId, (SelectList)ViewBag.m, new { @class = "form-control" })</td>
+            <td>@Html.ValidationMessageFor(c => c.MembershipTypeId)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(c => c.IsSubscribed)</td>
+            <td>@Html.CheckBoxFor(c => c.IsSubscribed)</td>
+            <td>@Html.ValidationMessageFor(c => c.IsSubscribed)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Edit" class="btn btn-success" /></td>
+            <td></td>
+        </tr>
+
+    </table>
+
+
+
+
+</form>
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

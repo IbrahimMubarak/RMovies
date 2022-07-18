@@ -1,0 +1,13 @@
+﻿@model RMovies.Models.Customer
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.name</h2>
+
+<ul>
+   
+    <li>Membership Type : @Model.MembershipType.name</li>
+    <li>Birthdate: @Model.birthday.ToShortDateString()</li>
+    
+</ul>
